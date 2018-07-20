@@ -4,8 +4,21 @@ def heapsort(arr):
   for e in arr:
     new_heap.insert(e)
   while new_heap.size > 0:
-    sorted_list.insert(0, new_heap.delete())
-  return sorted_list
+    sorted_list.insert(0, new_heap.delete()) # insert this way has o(n) becoz it shifts every el to the back one spot
+  return sorted_list                         # insert itself has o(log n)
+
+  '''
+  # Sean's solution which runtime is O(n log n)
+  def heapsort(arr)
+    heap = Heap()
+    # initialize our sorted array to have length equal to our input array
+    sorted = [0] * len(arr)
+    for el in arr:
+      heap.insert(el)
+    for i in range(len(arr)):
+      sorted[len(arr) - i - 1] = heap.delete() # `len(arr) - i - 1` = decendants loop
+    return sorted
+  '''
 
 class Heap:
   def __init__(self):

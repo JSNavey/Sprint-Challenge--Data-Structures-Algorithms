@@ -11,6 +11,7 @@ a)  a = 0;
         a = a + n * n;
 
 `Answer: O(n)`
+`Solution: O(n^3/n^2) = O(n)`
 
 b) // input array is of length n
     i = array.length - 1;
@@ -26,12 +27,14 @@ c)  sum = 0;
                 sum++;
             
 `Answer: O(sqrt(n))??`
+`Solution: O(sqrt(n))`
 
 d)  sum = 0;
     for (i = 1; i < n; i *= 2)
         for (j = 0; j < n; j++)
             sum++;
 `Answer: O(n)??`
+`Solution: O(n log n)`
 
 e)  sum = 0;
     for (i = 0; i < n; i++)
@@ -41,6 +44,7 @@ e)  sum = 0;
                     sum++;
 
 `Answer: O(n^3)`
+`Solution: O(n^3)`
 
 f)  bunnyEars = function (bunnies) { // here bunnies === n
         if (bunnies === 0) return 0;
@@ -48,6 +52,7 @@ f)  bunnyEars = function (bunnies) { // here bunnies === n
     }
 
 `Answer: O(n)`
+`Solution: O(n)`
 
 g)  search = function (array, arraySize, target) { // here arraySize === n
         if (arraySize > 0) {
@@ -57,12 +62,22 @@ g)  search = function (array, arraySize, target) { // here arraySize === n
         return false;
     }
 `Answer: O(n)`
+`Solution: O(n)`
 
 ### Exercise II.
 
 a)  Given an array a of n numbers, design a linear running time algorithm to find the maximum value of
         `a[j] - a[i], where j ≥ i.`
 `Answer: ??`
+`Solution:`
+    def max_diff(arr):
+        minVal = a[0]
+        maxDiff = 0
+        for i in arr:
+            minVal = min(minVal, a[i])
+            maxDiff = max(maxDiff, a[i] - minVal)
+        return maxDiff
+    
 
 b)  Suppose that you have an n-story building and plenty of eggs. Suppose also that an egg is broken if it is thrown off floor f or higher, and unbroken otherwise. Devise a strategy to determine the value of f such that the number of dropped eggs is minimized.
 `Answer: I will think about using Binary search tree that split the number of floors in half.  If egg breaks, go down another half otherwise go up another half.`
@@ -87,3 +102,4 @@ What is the running time of this algorithm on an input array that is already sor
 
 b)  Suppose we implement quicksort so that the pivot is always magically chosen to be the median element of the array. What is the running time of this algorithm? Why?
 `Answer: ??`
+`Solution: O(n log n)`
